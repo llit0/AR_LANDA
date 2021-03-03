@@ -17,8 +17,8 @@ public class TerrainGenerator : MonoBehaviour
     private float WH;
     private Color32[] cols, other_cols;
     private Texture2D texture;
-    private double[] X = new[] {40.0, 60, 140, 245, 235, 160, 40}; //{ 5.0, 7, 10, 25, 30, 30, 35 };
-    private double[] Y = new[] {40.0, 140, 180, 200, 100, 40, 40}; //{ 15.0, 25, 10, 20, 23, 40, 35 };
+    private double[] X = new[] {0.0, 1000.0, 1000.0, 0.0}; //{40.0, 60, 140, 245, 235, 160, 40}; //{ 5.0, 7, 10, 25, 30, 30, 35 };
+    private double[] Y = new[] {0.0, 0.0, 1000.0, 1000.0};//{40.0, 140, 180, 200, 100, 40, 40}; //{ 15.0, 25, 10, 20, 23, 40, 35 };
 
     private double[] InnerX = new[] {70.0, 70, 90, 90};
     private double[] InnerY = new[] {70.0, 90, 90, 70};
@@ -191,15 +191,16 @@ public class TerrainGenerator : MonoBehaviour
         if (w < 1.0f && h < 1.0f) // || (x > 128 || y > 128)
         {
             float c = (c1 + c2 + c3 + c4) * _coefficient;
-            var ins = inside(x, y, 7, X, Y); //
+            //var ins = inside(x, y, 7, X, Y); //
+            int ins = 1;
             //var ins2 = inside(x, y, 4, InnerX, InnerY);
             cols[(int) x + (int) y * width] = new Color(c, c, c);
             if (c <= 0) c = 5;
-            if (ins == 0)
-            {
-                c = 0;
-            }
-            else if (ins == 1 && c <= 0)
+            //if (ins == 0)
+            //{
+            //    c = 0;
+            //}
+            if (ins == 1 && c <= 0)
             {
                 c = 255;
             }
