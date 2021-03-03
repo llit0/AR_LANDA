@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-public class TownConfigData : MonoBehaviour
+public class TownConfigData
 {
     public float money;
     public float attraction;
