@@ -14,7 +14,17 @@ public static class ServerConnection
     private static string address = "188.68.221.63";
     private static int port = 10000;
 
-    public static async void GetTownRequest()
+    public static async void GetTownData()
+    {
+        await Task.Run(()=>SendTownRequest());
+    }
+
+    public static async void GetPeopleData()
+    {
+        await Task.Run(()=>SendPeopleRequest()); 
+    }
+
+    private static void SendTownRequest()
     {
         TcpClient client = new TcpClient(address, port);
         string json = "{\"token\":\"3\", \"action\":\"get_town\"}";
@@ -41,7 +51,7 @@ public static class ServerConnection
         town = JsonUtility.FromJson<Town>(responseData);
     }
 
-    public static async void GetPeopleRequest()
+    private static void SendPeopleRequest()
     {
         TcpClient client = new TcpClient(address, port);
         string json = "{\"token\":\"3\", \"action\":\"get_people\"}";
