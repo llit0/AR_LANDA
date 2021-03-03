@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading;
+using System.Threading.Tasks;
 using System.Runtime.Serialization.Json;
 
 public static class ServerConnection
@@ -13,20 +13,8 @@ public static class ServerConnection
 
     private static string address = "188.68.221.63";
     private static int port = 10000;
-    public static Thread townThread = new Thread(SendTownRequest);
-    public static Thread peopleThread = new Thread(SendPeopleRequest);
 
-    public static void GetTownData()
-    {
-        townThread.Start();
-    }
-
-    public static void GetPeopleData()
-    {
-        peopleThread.Start();
-    }
-
-    private static void SendTownRequest()
+    public static async void GetTownRequest()
     {
         TcpClient client = new TcpClient(address, port);
         string json = "{\"token\":\"3\", \"action\":\"get_town\"}";
@@ -53,7 +41,7 @@ public static class ServerConnection
         town = JsonUtility.FromJson<Town>(responseData);
     }
 
-    private static void SendPeopleRequest()
+    public static async void GetPeopleRequest()
     {
         TcpClient client = new TcpClient(address, port);
         string json = "{\"token\":\"3\", \"action\":\"get_people\"}";
