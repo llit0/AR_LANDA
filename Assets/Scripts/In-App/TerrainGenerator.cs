@@ -94,7 +94,7 @@ public class TerrainGenerator : MonoBehaviour
                         GRAIN = 2; // Коэффициент зернистости
                         break;
                     case 1:
-                        GRAIN = 8;
+                        GRAIN = 4;
                         break;
                 }
 
