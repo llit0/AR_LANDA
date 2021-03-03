@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FLAT: 0
   material: {fileID: 2100000, guid: 972e9f0734f51b24da27bc238b852fde, type: 2}
-  zoneCount: 8
+  zoneCount: 4
 --- !u!154 &1646104685
 TerrainCollider:
   m_ObjectHideFlags: 0
