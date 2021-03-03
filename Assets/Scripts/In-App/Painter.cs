@@ -73,7 +73,6 @@ public class Painter : MonoBehaviour
         terrainData.SetAlphamaps(0, 0, splatmapData);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Paint();
