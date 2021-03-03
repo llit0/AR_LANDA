@@ -39,7 +39,7 @@ public class Painter : MonoBehaviour
         TerrainData terrainData = terrain.terrainData;
         float[,,] splatmapData = new float[terrainData.alphamapWidth,
             terrainData.alphamapHeight, terrainData.alphamapLayers];
-        Debug.Log(terrainData.alphamapHeight + " " + terrainData.alphamapWidth + " " + terrainData.alphamapLayers);
+
         for (int y = 0; y < terrainData.alphamapHeight; y++)
         {
             for (int x = 0; x < terrainData.alphamapWidth; x++)
@@ -70,8 +70,6 @@ public class Painter : MonoBehaviour
             }
         }
 
-        Debug.Log(terrainData.GetHeight(128, 128));
-        Debug.Log(terrainData.GetHeight(5, 5));
         terrainData.SetAlphamaps(0, 0, splatmapData);
     }
 

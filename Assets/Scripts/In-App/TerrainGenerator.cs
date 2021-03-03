@@ -7,7 +7,7 @@ public class TerrainGenerator : MonoBehaviour
     [Header("Generation settings")] [Range(0.0f, 1)]
     private float _coefficient;
 
-    private float R = 1, RY = 1; // Коэффициент скалистости
+    private float R = 1; // Коэффициент скалистости
     private int GRAIN = 0; // Коэффициент зернистости
     public bool FLAT = false; // Делать ли равнины
     public Material material;
@@ -67,7 +67,6 @@ public class TerrainGenerator : MonoBehaviour
     // Алгоритм diamond square -- https://habr.com/ru/post/249027/
     public void Start()
     {
-        Debug.Log("Start " + zoneCount + " " + width);
         GenerateZones();
 
         int resolution = width;
@@ -100,7 +99,6 @@ public class TerrainGenerator : MonoBehaviour
                 }
 
                 currentZone = zones[y, x];
-                Debug.Log(x + " " + y + " Grain " + GRAIN);
                 drawPlasma(partialWidth, partialWidth, y * partialWidth, x * partialWidth);
             }
         }
@@ -115,11 +113,11 @@ public class TerrainGenerator : MonoBehaviour
         R = 0.4f;
         // Задаём высоту вершинам по карте высот
         float a = 129 % partialWidth;
-        Debug.Log(a + " " + partialWidth);
+
         
         for (int i = 0; i < resolution; i++) //y
             for (int k = 0; k < resolution; k++) //x
-                heights[i, k] = texture.GetPixel(i, k).grayscale * 0.4f; // * R;
+                heights[i, k] = texture.GetPixel(i, k).grayscale * R; 
 
         // Применяем изменения
         var terrainData = terrain.terrainData;
@@ -181,14 +179,12 @@ public class TerrainGenerator : MonoBehaviour
         c2 = Random.Range(0.1f, 0.15f);
         c3 = Random.Range(0.1f, 0.15f);
         c4 = Random.Range(0.1f, 0.15f);
-        Debug.Log(c1 + " " + c2 + " " + c3 + " " + c4);
         divide(start_x, start_y, w, h, c1, c2, c3, c4);
     }
 
     // Сама рекурсивная функция отрисовки
     void divide(float x, float y, float w, float h, float c1, float c2, float c3, float c4)
     {
-        //Debug.Log(x + " " +  y);
         float newWidth = w * 0.5f;
         float newHeight = h * 0.5f;
 
