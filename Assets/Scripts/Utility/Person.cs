@@ -1,4 +1,4 @@
-﻿public class Person
+﻿public abstract class Person
 {
    public int id;
    public int[] position = new int[2]; 
