@@ -212,10 +212,13 @@ MonoBehaviour:
   terrain: {fileID: 1646104686}
   homeBuildings:
   - {fileID: 3987858037323789976, guid: 2e8430bcdcfe8bc45b3c0d06d8f73c49, type: 3}
+  - {fileID: 2014591936615804567, guid: 78c70ff9e4a5cf84c8d15d50347ac86c, type: 3}
   workBuildings:
   - {fileID: 6581457569520803656, guid: 23e51716d53d41941a17920c218db1e0, type: 3}
+  - {fileID: 1514046034878226025, guid: 18a3814e26276444f96f5c8c99626844, type: 3}
   entertainBuildings:
   - {fileID: 8378108317007774377, guid: 5e4810d644a4a4e48a323a145f47eaf1, type: 3}
+  - {fileID: 9164766836381161348, guid: 31e021c4cb3087e4ea45c01913c79599, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
