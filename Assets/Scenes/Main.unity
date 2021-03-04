@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrain: {fileID: 1646104686}
-  citizen: {fileID: 7793100827157272600, guid: 9f0ca8f93adfca04687fe216a272dadc, type: 3}
+  citizen: {fileID: 7515865176153356532, guid: 9f0ca8f93adfca04687fe216a272dadc, type: 3}
 --- !u!4 &225604558
 Transform:
   m_ObjectHideFlags: 0
