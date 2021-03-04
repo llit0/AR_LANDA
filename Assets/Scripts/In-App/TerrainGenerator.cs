@@ -106,8 +106,8 @@ public class TerrainGenerator : MonoBehaviour
                     case 3: // Mountain
                         zones[i,j] = 1;
                         break;
-                    case 0:  // Water ???
-                        zones[i,j] = 0;  // Plain, just for now
+                    case 0:  // Water
+                        zones[i,j] = 3;
                         break;
                 }
             }
@@ -147,6 +147,9 @@ public class TerrainGenerator : MonoBehaviour
                         break;
                     case 1:
                         GRAIN = 8;
+                        break;
+                    case 3:
+                        GRAIN = 0;
                         break;
                 }
 
@@ -218,6 +221,8 @@ public class TerrainGenerator : MonoBehaviour
                 return Random.Range(-0.5f, 0.25f) * max;
             case 1:
                 return Random.Range(0f, 0.5f) * max;
+            case 3:
+                return -1f * max;
         }
 
         return 0; //Random.Range(0f, 1.5f) * max;
@@ -265,6 +270,12 @@ public class TerrainGenerator : MonoBehaviour
             float edge2 = (c2 + c3) * 0.5f;
             float edge3 = (c3 + c4) * 0.5f;
             float edge4 = (c4 + c1) * 0.5f;
+
+            if (currentZone == 3)
+                middle = 0.07f;
+            else
+                middle += 0.01f;
+
             if (!FLAT)
             {
                 if (middle <= 0)

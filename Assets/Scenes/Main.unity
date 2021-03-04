@@ -506,14 +506,14 @@ MonoBehaviour:
   splatHeights:
   - startingHeight: 0
     overlap: 0
-  - startingHeight: 10
-    overlap: 5
-  - startingHeight: 17
-    overlap: 0
-  - startingHeight: 35
-    overlap: 20
   - startingHeight: 1
-    overlap: 20
+    overlap: 0
+  - startingHeight: 30
+    overlap: 0
+  - startingHeight: 37
+    overlap: 0
+  - startingHeight: 51
+    overlap: 0
 --- !u!114 &1646104684
 MonoBehaviour:
   m_ObjectHideFlags: 0
