@@ -4,6 +4,10 @@ using UnityEngine;
 public class CitizenCreator : MonoBehaviour
 {
     public static bool peopleDataReceived = false;
+
+    [SerializeField] 
+    private Terrain terrain;
+    
     [SerializeField]
     private GameObject citizen;
 
@@ -16,7 +20,10 @@ public class CitizenCreator : MonoBehaviour
 
     private Vector3 convertPosition(Person person)
     {
-        Vector3 position = new Vector3(person.position[0], 0f, person.position[1]);
+        float x = person.position[0] / 10f;
+        float z = person.position[1] / 10f;
+        float y = TerrainGenerator.findTerrainHeight(x, z, terrain);
+        Vector3 position = new Vector3(x, y, z);
         return position;
     }
 

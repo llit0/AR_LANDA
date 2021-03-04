@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 public class TownCreator : MonoBehaviour
 {
     public static bool townDataReceived = false;
-    
     [SerializeField]
     private Terrain terrain;
     
@@ -28,18 +27,10 @@ public class TownCreator : MonoBehaviour
     private Vector3 convertPosition(Building building)
     {
         const float halfCellSize = 250f / 32f;
-        TerrainData terrainData = terrain.terrainData;
-        float x = halfCellSize + halfCellSize * building.position[0];
-        float z = halfCellSize + halfCellSize * building.position[1];
-        float y = 0f;
-        int intX = (int)x;
-        int intZ = (int)z;
-        int[] xCoords = new int[3] {intX, intX - 5, intX + 5};
-        int[] zCoords = new int[3] {intZ, intZ - 5, intZ + 5};
-        for (int i = 0; i < 3; i++)
-            for (int j = 0; j < 3; j++)
-                y = Math.Max(y, terrainData.GetHeight(xCoords[i], zCoords[j]));
-        
+        float x = halfCellSize + 2 * halfCellSize * building.position[0];
+        float z = halfCellSize + 2 * halfCellSize * building.position[1];
+        float y = TerrainGenerator.findTerrainHeight(x, z, terrain);
+
         Vector3 position = new Vector3(x, y, z);
         return position;
     }

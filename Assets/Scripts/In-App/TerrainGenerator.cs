@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class TerrainGenerator : MonoBehaviour
@@ -307,5 +308,19 @@ public class TerrainGenerator : MonoBehaviour
         }
 
         return s;
+    }
+
+    public static float findTerrainHeight(float x, float z, Terrain terrain)
+    {
+        float y = 0;
+        int intX = (int) x;
+        int intZ = (int) z;
+        int[] xCoords = new int[3] {intX, intX - 5, intX + 5};
+        int[] zCoords = new int[3] {intZ, intZ - 5, intZ + 5};
+        for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            y = Mathf.Max(y, terrain.terrainData.GetHeight(xCoords[i], zCoords[j]));
+        
+        return y;
     }
 }

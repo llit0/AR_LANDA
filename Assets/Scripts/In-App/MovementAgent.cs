@@ -11,6 +11,11 @@ public class MovementAgent : MonoBehaviour
             movementVector = -1 * movementVector;
     }
 
+    private void changeVector()
+    {
+        
+    }
+    
     private bool checkPosition()
     {
         Vector3 position = this.transform.position;
