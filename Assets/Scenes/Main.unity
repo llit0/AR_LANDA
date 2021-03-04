@@ -508,9 +508,9 @@ MonoBehaviour:
     overlap: 0
   - startingHeight: 1
     overlap: 0
-  - startingHeight: 30
+  - startingHeight: 25
     overlap: 0
-  - startingHeight: 37
+  - startingHeight: 30
     overlap: 0
   - startingHeight: 51
     overlap: 0
