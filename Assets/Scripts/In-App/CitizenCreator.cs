@@ -40,8 +40,8 @@ public class CitizenCreator : MonoBehaviour
             GameObject cit = Instantiate(citizen, convertPosition(person), Quaternion.identity, this.transform);
             Vector3 movementDirection = initializePrimaryVelocity(person);
             cit.GetComponent<MovementAgent>().movementVector = movementDirection;
-            this.transform.rotation = Quaternion.LookRotation(movementDirection);
-            this.transform.rotation *= Quaternion.Euler(0, -180, 0);
+            cit.transform.rotation = Quaternion.LookRotation(movementDirection);
+            cit.transform.rotation *= Quaternion.Euler(0, -180, 0);
         }    
     }
 }
