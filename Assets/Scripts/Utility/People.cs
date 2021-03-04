@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+[Serializable]
 public class People
 {
-    public readonly List<Person> people = new List<Person>();
+    public List<Person> people = new List<Person>();
 }

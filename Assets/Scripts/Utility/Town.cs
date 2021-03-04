@@ -1,4 +1,7 @@
-﻿public class Town
+﻿using System;
+
+[Serializable]
+public class Town
 {
     public string id;
     public int token;

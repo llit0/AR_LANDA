@@ -1,4 +1,7 @@
-﻿public class TownConfig
+﻿using System;
+
+[Serializable]
+public class TownConfig
 {
     public int max_x;
     public int max_y;

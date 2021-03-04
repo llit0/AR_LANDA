@@ -1,5 +1,8 @@
-﻿public class Building
+﻿using System;
+
+[Serializable]
+public class Building
 {
     public string type;
-    public readonly int[] position = new int[2];
+    public int[] position = new int[2];
 }

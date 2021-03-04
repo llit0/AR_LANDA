@@ -53,7 +53,7 @@ public static class ServerConnection
         client.Close();
 
         town = JsonUtility.FromJson<Town>(responseData);
-        NetworkEvents.onTownDataReceive();
+        TownCreator.townDataReceived = true;
     }
 
     private static void sendPeopleRequest()
@@ -80,7 +80,7 @@ public static class ServerConnection
         client.Close();
 
         people = JsonUtility.FromJson<People>(responseData);
-        NetworkEvents.onPeopleDataReceive();
+        CitizenCreator.peopleDataReceived = true;
     }
 
     private static void sendTerraRequest()

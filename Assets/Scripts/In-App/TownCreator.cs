@@ -6,6 +6,8 @@ using Random = UnityEngine.Random;
 
 public class TownCreator : MonoBehaviour
 {
+    public static bool townDataReceived = false;
+    
     [SerializeField]
     private GameObject[] homeBuildings;
     [SerializeField]
@@ -13,9 +15,11 @@ public class TownCreator : MonoBehaviour
     [SerializeField]
     private GameObject[] entertainBuildings;
 
-    private void Awake()
+    private void Update()
     {
-        NetworkEvents.townDataReceive += createBuildings;
+        if (!townDataReceived) return;
+        townDataReceived = false;
+        createBuildings();
     }
 
     private Vector3 convertPosition(Building building)
@@ -38,6 +42,7 @@ public class TownCreator : MonoBehaviour
             {"work", workBuildings},
             {"entertainment", entertainBuildings}
         };
+        
         List<Building> buildings = ServerConnection.town.data.buildings;
         foreach (Building building in buildings)
         {

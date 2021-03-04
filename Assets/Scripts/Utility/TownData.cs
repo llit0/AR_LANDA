@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+[Serializable]
 public class TownData
 {
     public float money;
@@ -8,5 +10,5 @@ public class TownData
     public int workload;
     public int quarters;
     public string time;
-    public List<Building> buildings;
+    public List<Building> buildings = new List<Building>();
 }

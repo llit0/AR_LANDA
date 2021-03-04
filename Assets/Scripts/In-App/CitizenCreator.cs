@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class CitizenCreator : MonoBehaviour
 {
+    public static bool peopleDataReceived = false;
     [SerializeField]
     private GameObject citizen;
 
-
-    private void Awake()
+    private void Update()
     {
-        NetworkEvents.peopleDataReceive += createCitizens;
+        if (!peopleDataReceived) return;
+        peopleDataReceived = false;
+        createCitizens();
     }
 
     private Vector3 convertPosition(Person person)
