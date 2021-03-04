@@ -1,18 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovementAgent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Vector3 movementVector;
+
+    private void FixedUpdate()
     {
-        
+        this.transform.Translate(movementVector * Time.deltaTime);
+        if (checkPosition())
+            movementVector = -1 * movementVector;
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool checkPosition()
     {
-        
+        Vector3 position = this.transform.position;
+        return position.x > 995 || position.x < 5 || position.y > 995 || position.y < 5;
     }
 }

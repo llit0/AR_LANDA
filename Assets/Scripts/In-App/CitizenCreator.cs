@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CitizenCreator : MonoBehaviour
 {
@@ -25,7 +23,7 @@ public class CitizenCreator : MonoBehaviour
         {
             GameObject cit = Instantiate(citizen, convertPosition(person), Quaternion.identity, this.transform);
             Vector3 movementDirection = initializePrimaryVelocity(person);
-            
+            cit.GetComponent<MovementAgent>().movementVector = movementDirection;
         }    
     }
 }
