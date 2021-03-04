@@ -11,23 +11,23 @@ public static class ServerConnection
     public static People people;
     public static Town town;
 
-    private static string address = "188.68.221.63";
-    private static int port = 10000;
+    private const string Address = "188.68.221.63";
+    private const int Port = 10000;
 
     public static async void GetTownData()
     {
-        await Task.Run(()=>SendTownRequest());
+        await Task.Run(sendTownRequest);
     }
 
     public static async void GetPeopleData()
     {
-        await Task.Run(()=>SendPeopleRequest()); 
+        await Task.Run(sendPeopleRequest); 
     }
 
-    private static void SendTownRequest()
+    private static void sendTownRequest()
     {
-        TcpClient client = new TcpClient(address, port);
-        string json = "{\"token\":\"3\", \"action\":\"get_town\"}";
+        TcpClient client = new TcpClient(Address, Port);
+        const string json = "{\"token\":\"3\", \"action\":\"get_town\"}";
         byte[] data = Encoding.UTF8.GetBytes(json);
         NetworkStream stream = client.GetStream();
         stream.Write(data, 0, data.Length);
@@ -35,10 +35,9 @@ public static class ServerConnection
         byte[] readingData = new byte[256];
         string responseData = "";
         StringBuilder completeMessage = new StringBuilder();
-        int numberOfBytesRead = 0;
         do
         {
-            numberOfBytesRead = stream.Read(readingData, 0,readingData.Length);
+            int numberOfBytesRead = stream.Read(readingData, 0,readingData.Length);
             completeMessage.AppendFormat("{0}", Encoding.UTF8.GetString(readingData, 0, numberOfBytesRead));
         }
         while (stream.DataAvailable);
@@ -51,10 +50,10 @@ public static class ServerConnection
         town = JsonUtility.FromJson<Town>(responseData);
     }
 
-    private static void SendPeopleRequest()
+    private static void sendPeopleRequest()
     {
-        TcpClient client = new TcpClient(address, port);
-        string json = "{\"token\":\"3\", \"action\":\"get_people\"}";
+        TcpClient client = new TcpClient(Address, Port);
+        const string json = "{\"token\":\"3\", \"action\":\"get_people\"}";
         byte[] data = Encoding.UTF8.GetBytes(json);
         NetworkStream stream = client.GetStream();
         stream.Write(data, 0, data.Length);
@@ -62,10 +61,9 @@ public static class ServerConnection
         byte[] readingData = new byte[256];
         string responseData = "";
         StringBuilder completeMessage = new StringBuilder();
-        int numberOfBytesRead = 0;
         do
         {
-            numberOfBytesRead = stream.Read(readingData, 0,readingData.Length);
+            int numberOfBytesRead = stream.Read(readingData, 0,readingData.Length);
             completeMessage.AppendFormat("{0}", Encoding.UTF8.GetString(readingData, 0, numberOfBytesRead));
         }
         while (stream.DataAvailable);
