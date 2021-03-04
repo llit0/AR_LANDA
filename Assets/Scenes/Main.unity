@@ -505,9 +505,9 @@ MonoBehaviour:
     overlap: 0
   - startingHeight: 1
     overlap: 5
-  - startingHeight: 5
-    overlap: 5
-  - startingHeight: 15
+  - startingHeight: 17
+    overlap: 0
+  - startingHeight: 25
     overlap: 20
 --- !u!114 &1646104684
 MonoBehaviour:
