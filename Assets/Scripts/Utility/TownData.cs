@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-public class TownConfigData
+public class TownData
 {
     public float money;
     public float attraction;

@@ -4,5 +4,5 @@
     public int token;
     public int i;
     public TownConfig config;
-    public TownConfigData data;
+    public TownData data;
 }
