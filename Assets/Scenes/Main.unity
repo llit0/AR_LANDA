@@ -506,11 +506,11 @@ MonoBehaviour:
   splatHeights:
   - startingHeight: 0
     overlap: 0
-  - startingHeight: 1
+  - startingHeight: 10
     overlap: 5
   - startingHeight: 17
     overlap: 0
-  - startingHeight: 25
+  - startingHeight: 35
     overlap: 20
 --- !u!114 &1646104684
 MonoBehaviour:
