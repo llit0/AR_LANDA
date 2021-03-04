@@ -512,6 +512,8 @@ MonoBehaviour:
     overlap: 0
   - startingHeight: 35
     overlap: 20
+  - startingHeight: 1
+    overlap: 20
 --- !u!114 &1646104684
 MonoBehaviour:
   m_ObjectHideFlags: 0
