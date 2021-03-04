@@ -24,12 +24,12 @@ public class TownCreator : MonoBehaviour
 
     private Vector3 convertPosition(Building building)
     {
-        const float halfCellSize = 1000f / 32f;
+        const float halfCellSize = 250f / 32f;
         
         Vector3 position = new Vector3
         (
             halfCellSize + halfCellSize * building.position[0], 
-            0f, 
+            25f, 
             halfCellSize + halfCellSize * building.position[1]
         );
         return position;
