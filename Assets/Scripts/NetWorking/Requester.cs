@@ -10,4 +10,10 @@ public class Requester : MonoBehaviour
         ServerConnection.GetTownData();
         ServerConnection.GetTerraData();
     }
+
+    // void Update()
+    // {
+    //     if (ServerConnection.dataFrom != null)
+    //         Debug.Log(ServerConnection.dataFrom);
+    // }
 }

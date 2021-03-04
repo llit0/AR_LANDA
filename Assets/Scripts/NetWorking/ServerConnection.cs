@@ -9,6 +9,8 @@ public static class ServerConnection
     public static Town town;
     public static Terra terra;
 
+    public static string dataFrom;
+
     private const string Address = "188.68.221.63";
     private const int Port = 10000;
 
@@ -101,6 +103,8 @@ public static class ServerConnection
 
         stream.Close();
         client.Close();
+
+        dataFrom = responseData;
 
         terra = JsonUtility.FromJson<Terra>(responseData);
     }
