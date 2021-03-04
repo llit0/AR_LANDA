@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225a51728e42a864a90f0ec5cd3b9663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FLAT: 0
+  FLAT: 1
   material: {fileID: 2100000, guid: 972e9f0734f51b24da27bc238b852fde, type: 2}
   zoneCount: 8
 --- !u!154 &1646104685

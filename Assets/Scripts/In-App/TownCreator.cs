@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 public class TownCreator : MonoBehaviour
 {
     public static bool townDataReceived = false;
-    [SerializeField]
-    private Terrain terrain;
+    
+    public Terrain terrain;
     
     [SerializeField]
     private GameObject[] homeBuildings;
