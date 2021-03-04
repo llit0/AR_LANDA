@@ -28,7 +28,6 @@ public class CitizenCreator : MonoBehaviour
     public void createCitizens()
     {
         People people = ServerConnection.people;
-        Debug.Log(ServerConnection.people.people.Count);
         foreach(Person person in people.people)
         {
             GameObject cit = Instantiate(citizen, convertPosition(person), Quaternion.identity, this.transform);

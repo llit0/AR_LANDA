@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5510ef77bb29d4ab03359b9b338122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrain: {fileID: 1646104686}
   homeBuildings:
   - {fileID: 3987858037323789976, guid: 2e8430bcdcfe8bc45b3c0d06d8f73c49, type: 3}
   workBuildings:
