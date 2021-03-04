@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public abstract class Person
+public class Person
 {
    public int id;
    public int[] position = new int[2]; 
