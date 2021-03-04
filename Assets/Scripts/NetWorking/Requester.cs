@@ -8,5 +8,6 @@ public class Requester : MonoBehaviour
     {
         ServerConnection.GetPeopleData();
         ServerConnection.GetTownData();
+        ServerConnection.GetTerraData();
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-public abstract class People
+public class People
 {
     public readonly List<Person> people = new List<Person>();
 }

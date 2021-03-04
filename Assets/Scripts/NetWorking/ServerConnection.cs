@@ -7,6 +7,7 @@ public static class ServerConnection
 {
     public static People people;
     public static Town town;
+    public static Terra terra;
 
     private const string Address = "188.68.221.63";
     private const int Port = 10000;
@@ -19,6 +20,11 @@ public static class ServerConnection
     public static async void GetPeopleData()
     {
         await Task.Run(sendPeopleRequest); 
+    }
+
+    public static async void GetTerraData()
+    {
+        await Task.Run(sendTerraRequest); 
     }
 
     private static void sendTownRequest()
@@ -71,6 +77,32 @@ public static class ServerConnection
         client.Close();
 
         people = JsonUtility.FromJson<People>(responseData);
+    }
+
+    private static void sendTerraRequest()
+    {
+        TcpClient client = new TcpClient(Address, Port);
+        const string json = "{\"token\":\"3\", \"action\":\"get_terrain\"}";
+        byte[] data = Encoding.UTF8.GetBytes(json);
+        NetworkStream stream = client.GetStream();
+        stream.Write(data, 0, data.Length);
+
+        byte[] readingData = new byte[256];
+        string responseData = "";
+        StringBuilder completeMessage = new StringBuilder();
+        do
+        {
+            int numberOfBytesRead = stream.Read(readingData, 0,readingData.Length);
+            completeMessage.AppendFormat("{0}", Encoding.UTF8.GetString(readingData, 0, numberOfBytesRead));
+        }
+        while (stream.DataAvailable);
+            responseData = completeMessage.ToString();
+
+
+        stream.Close();
+        client.Close();
+
+        terra = JsonUtility.FromJson<Terra>(responseData);
     }
 
 }
