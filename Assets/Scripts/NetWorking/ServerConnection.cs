@@ -14,17 +14,17 @@ public static class ServerConnection
     private const string Address = "188.68.221.63";
     private const int Port = 10000;
 
-    public static async void GetTownData()
+    public static async void getTownData()
     {
         await Task.Run(sendTownRequest);
     }
 
-    public static async void GetPeopleData()
+    public static async void getPeopleData()
     {
         await Task.Run(sendPeopleRequest); 
     }
 
-    public static async void GetTerraData()
+    public static async void getTerraData()
     {
         await Task.Run(sendTerraRequest); 
     }
@@ -53,6 +53,7 @@ public static class ServerConnection
         client.Close();
 
         town = JsonUtility.FromJson<Town>(responseData);
+        NetworkEvents.onTownDataReceive();
     }
 
     private static void sendPeopleRequest()
@@ -79,6 +80,7 @@ public static class ServerConnection
         client.Close();
 
         people = JsonUtility.FromJson<People>(responseData);
+        NetworkEvents.onPeopleDataReceive();
     }
 
     private static void sendTerraRequest()

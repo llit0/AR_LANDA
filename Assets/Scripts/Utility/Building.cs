@@ -1,5 +1,5 @@
 ﻿public class Building
 {
     public string type;
-    public int[] position = new int[2];
+    public readonly int[] position = new int[2];
 }

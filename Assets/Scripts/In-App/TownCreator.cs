@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -12,6 +13,10 @@ public class TownCreator : MonoBehaviour
     [SerializeField]
     private GameObject[] entertainBuildings;
 
+    private void Awake()
+    {
+        NetworkEvents.townDataReceive += createBuildings;
+    }
 
     private Vector3 convertPosition(Building building)
     {
@@ -25,7 +30,7 @@ public class TownCreator : MonoBehaviour
         );
         return position;
     }
-    private void createBuildings()
+    public void createBuildings()
     {
         Dictionary<string, GameObject[]> buildingArrays = new Dictionary<string, GameObject[]>()
         {

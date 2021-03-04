@@ -6,14 +6,8 @@ public class Requester : MonoBehaviour
 {
     void Start()
     {
-        ServerConnection.GetPeopleData();
-        ServerConnection.GetTownData();
-        ServerConnection.GetTerraData();
+        ServerConnection.getPeopleData();
+        ServerConnection.getTownData();
+        ServerConnection.getTerraData();
     }
-
-    // void Update()
-    // {
-    //     if (ServerConnection.dataFrom != null)
-    //         Debug.Log(ServerConnection.dataFrom);
-    // }
 }

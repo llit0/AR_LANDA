@@ -1,9 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CitizenCreator : MonoBehaviour
 {
     [SerializeField]
     private GameObject citizen;
+
+
+    private void Awake()
+    {
+        NetworkEvents.peopleDataReceive += createCitizens;
+    }
 
     private Vector3 convertPosition(Person person)
     {

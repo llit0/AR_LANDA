@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Painter : MonoBehaviour
@@ -17,11 +18,7 @@ public class Painter : MonoBehaviour
 
     void normalize(float[] v)
     {
-        float total = 0;
-        for (int i = 0; i < v.Length; i++)
-        {
-            total += v[i];
-        }
+        float total = v.Sum();
 
         for (int i = 0; i < v.Length; i++)
         {

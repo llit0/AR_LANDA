@@ -145,7 +145,7 @@ public class TerrainGenerator : MonoBehaviour
                         GRAIN = 2; // Коэффициент зернистости
                         break;
                     case 1:
-                        GRAIN = 4;
+                        GRAIN = 8;
                         break;
                 }
 
@@ -242,16 +242,15 @@ public class TerrainGenerator : MonoBehaviour
         if (w < 1.0f && h < 1.0f) // || (x > 128 || y > 128)
         {
             float c = (c1 + c2 + c3 + c4) * _coefficient;
-            //var ins = inside(x, y, 7, X, Y); //
-            int ins = 1;
+            var ins = inside(x, y, 5, X, Y); 
             //var ins2 = inside(x, y, 4, InnerX, InnerY);
             cols[(int) x + (int) y * width] = new Color(c, c, c);
             if (c <= 0) c = 5;
-            //if (ins == 0)
-            //{
-            //    c = 0;
-            //}
-            if (ins == 1 && c <= 0)
+            if (ins == 0)
+            {
+               c = 0;
+            }
+            else if (ins == 1 && c <= 0)
             {
                 c = 255;
             }
